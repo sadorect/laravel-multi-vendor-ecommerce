@@ -9,7 +9,8 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                    <span></span> <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a> <span></span> {{ $product['subcategory']['subcategory_name'] }} <span></span>{{ $product->product_name }} 
+                  
+                    <span></span> <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a> <span></span> {{ $product['subcategory'] != null ? $product['subcategory']['subcategory_name'] : "" }} <span></span>{{ $product->product_name }}
                 </div>
             </div>
         </div> 
@@ -178,11 +179,12 @@ $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1
 
 <div class="font-xs">
 <ul class="mr-50 float-start">
-<li class="mb-5">Brand: <span class="text-brand">{{ $product['brand']['brand_name'] }}</span></li>
+<li class="mb-5">Brand: <span class="text-brand">{{ $product['brand']!= null ? $product['brand']['brand_name']: "" }}</span></li>
 
 <li class="mb-5">Category:<span class="text-brand"> {{ $product['category']['category_name'] }}</span></li>
 
-<li>SubCategory: <span class="text-brand">{{ $product['subcategory']['subcategory_name'] }}</span></li>
+
+<li>SubCategory: <span class="text-brand">{{ $product['subcategory']!= null ? $product['subcategory']['subcategory_name'] : "" }}</span></li>
 </ul>
 
 <ul class="float-start">
